@@ -53,7 +53,8 @@ def main(aws_access_key_id, aws_secret_access_key, region_name, text, lexicon_na
         **params
     )
 
-    return {
-        "content-type": spoken_text["ContentType"],
-        "content": spoken_text["AudioStream"].read()
-    }
+    # return {
+    #     "content-type": spoken_text["ContentType"],
+    #     "content": spoken_text["AudioStream"].read()
+    # }
+    return "hello"
