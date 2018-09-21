@@ -3,7 +3,6 @@ import base64
 
 
 def main(aws_access_key_id, aws_secret_access_key, region_name, text, lexicon_names=None, sample_rate=None, speech_mark_types=None, text_type=None, language_code=None, output_format='mp3', voice_id='Emma'):
-
     polly = boto3.client(
         'polly',
         aws_access_key_id=aws_access_key_id,
