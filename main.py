@@ -1,13 +1,6 @@
-#! /usr/bin/env python
-import os
-import sys
+import boto3
+import base64
 
-parent_dir = os.path.abspath(os.path.dirname(__file__))
-vendor_dir = os.path.join(parent_dir, 'lib')
-
-sys.path.append(vendor_dir)
-
-from lib import boto3
 
 def main(aws_access_key_id, aws_secret_access_key, region_name, text, lexicon_names=None, sample_rate=None, speech_mark_types=None, text_type=None, language_code=None, output_format='mp3', voice_id='Emma'):
 
@@ -53,8 +46,7 @@ def main(aws_access_key_id, aws_secret_access_key, region_name, text, lexicon_na
         **params
     )
 
-    # return {
-    #     "content-type": spoken_text["ContentType"],
-    #     "content": spoken_text["AudioStream"].read()
-    # }
-    return "hello"
+    return {
+        "contentType": spoken_text["ContentType"],
+        "audioContent": base64.b64encode(spoken_text["AudioStream"].read())
+    }
